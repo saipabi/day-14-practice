@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    
+</head>
+<body>
+    <div  class="container mt-5 mb-5 d-flex justify-content-center">
+        <table class="table">
+            <thead></thead>
+            <tbody></tbody>
+            
+
+        </table>
+    </div>
+    <script src="./dataTable.js"></script>
+    <script>
+
+        function getTH() {
+            const column = Object.keys(Data[0]);
+            const head = document.querySelector('thead');
+            let tags = "<tr>";
+                for (i = 0; i<column.length; i++) {
+                    tags += `<th>${column[i]}</th>`;
+                }
+                tags += "</tr>"
+                head.innerHTML = tags;
+           
+                getTD();
+        }
+        function getTD() {
+            const body = document.querySelector('tbody');
+            let tags = "";
+
+            Data.map (d=> {
+                tags += `<tr>
+                    <td>${d.id}</td>
+                    <td>${d.name}</td>
+                    <td>${d.email}</td>
+                    </tr>`
+            }
+            )
+            body.innerHTML = tags;
+        }
+        ;
+
+   ;  </script>
+</body>
+</html>
